@@ -577,3 +577,147 @@ export const getPropsByProperty = <
     ...restProps,
   };
 };
+
+export const getBlockPropsByProperty = <
+  T extends WidthType &
+    HeightType &
+    PositionType &
+    BorderType &
+    OverflowType &
+    BackgroundType &
+    MarginType &
+    PaddingType &
+    VisibilityType &
+    InteractionType
+>(
+  props: T
+) => {
+  const {
+    width,
+    minWidth,
+    maxWidth,
+    height,
+    minHeight,
+    maxHeight,
+    position,
+    top,
+    left,
+    right,
+    bottom,
+    borderWidth,
+    borderStyle,
+    borderColor,
+    overflow,
+    overflowX,
+    overflowY,
+    overflowAnchor,
+    bgColor,
+    hoverBgColor,
+    backgroundImage,
+    backgroundSize,
+    backgroundRepeat,
+    backgroundPosition,
+    borderTopWidth,
+    borderTopStyle,
+    borderTopColor,
+    borderTopLeftRadius,
+    borderTopRightRadius,
+    borderBottomWidth,
+    borderBottomStyle,
+    borderBottomColor,
+    borderBottomLeftRadius,
+    borderBottomRightRadius,
+    borderLeftWidth,
+    borderLeftStyle,
+    borderLeftColor,
+    borderRightWidth,
+    borderRightStyle,
+    borderRightColor,
+    borderRadius,
+    hoverBorderWidth,
+    hoverBorderStyle,
+    hoverBorderColor,
+    hoverBorderRadius,
+    boxShadow,
+    m,
+    mt,
+    mb,
+    ml,
+    mr,
+    mx,
+    my,
+    p,
+    pt,
+    pb,
+    pl,
+    pr,
+    px,
+    py,
+    zIndex,
+    invisible,
+    opacity,
+    userSelect,
+    cursor,
+    pointerEvents,
+    ...restProps
+  } = props;
+  return {
+    marginProps: { m, mt, mb, ml, mr, mx, my },
+    paddingProps: { p, pt, pb, pl, pr, px, py },
+    widthProps: { width, minWidth, maxWidth },
+    heightProps: { height, minHeight, maxHeight },
+    positionProps: { position, top, left, right, bottom },
+    borderProps: {
+      borderWidth,
+      borderStyle,
+      borderColor,
+      borderRadius,
+      borderTopWidth,
+      borderTopStyle,
+      borderTopColor,
+      borderTopLeftRadius,
+      borderTopRightRadius,
+      borderBottomWidth,
+      borderBottomStyle,
+      borderBottomColor,
+      borderBottomLeftRadius,
+      borderBottomRightRadius,
+      borderLeftWidth,
+      borderLeftStyle,
+      borderLeftColor,
+      borderRightWidth,
+      borderRightStyle,
+      borderRightColor,
+      hoverBorderWidth,
+      hoverBorderStyle,
+      hoverBorderColor,
+      hoverBorderRadius,
+      boxShadow,
+    },
+    overflowProps: {
+      overflow,
+      overflowX,
+      overflowY,
+      overflowAnchor,
+    },
+    backgroundProps: {
+      bgColor,
+      hoverBgColor,
+      backgroundImage,
+      backgroundSize,
+      backgroundRepeat,
+      backgroundPosition,
+    },
+    visibilityProps: {
+      zIndex,
+      invisible,
+      opacity,
+    },
+    interactionProps: {
+      userSelect,
+      cursor,
+      pointerEvents,
+    },
+    ...restProps,
+  };
+};
