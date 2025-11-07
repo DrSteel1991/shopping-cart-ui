@@ -1,5 +1,5 @@
+import { useAuthToken } from "src/utils/auth";
 import { Navigate } from "react-router-dom";
-import { useAuthToken } from "../utils/auth";
 
 interface ProtectedRouteProps {
   children: React.ReactNode;

@@ -1,5 +1,5 @@
 import AxiosClient from "./AxiosClient";
-import { getAuthToken } from "../utils/auth";
+import { getAuthToken } from "src/utils/auth";
 import { QueryClient } from "@tanstack/react-query";
 
 interface LoginData {

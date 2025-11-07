@@ -12,7 +12,7 @@ import type {
   WidthType,
   HeightType,
   PositionType,
-} from "../types";
+} from "src/ui/types";
 import {
   getBlockPropsByProperty,
   computeMarginClassNames,
@@ -22,7 +22,7 @@ import {
   computeBorderClassNames,
   computeInteractionClassNames,
   computeBackgroundClassNames,
-} from "../helpers";
+} from "src/ui/helpers";
 
 interface StyledInputProps {
   $widthProps: WidthType;

@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
-import FlexDiv from "../../ui/FlexDiv/FlexDiv";
-import Button from "../../ui/Button/Button";
-import { setStoredToken } from "../../utils/auth";
+import FlexDiv from "src/ui/FlexDiv/FlexDiv";
+import Button from "src/ui/Button/Button";
+import { setStoredToken } from "src/utils/auth";
 
 const Dashboard = () => {
   const navigate = useNavigate();

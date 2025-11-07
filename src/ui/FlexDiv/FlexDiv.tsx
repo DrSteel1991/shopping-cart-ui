@@ -14,7 +14,7 @@ import type {
   WidthType,
   HeightType,
   PositionType,
-} from "../types";
+} from "src/ui/types";
 import {
   getPropsByProperty,
   computeFlexClassNames,
@@ -25,7 +25,7 @@ import {
   computeBorderClassNames,
   computeInteractionClassNames,
   computeBackgroundClassNames,
-} from "../helpers";
+} from "src/ui/helpers";
 
 interface StyledFlexDivProps {
   $widthProps: WidthType;

@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
-import FlexDiv from "../../ui/FlexDiv/FlexDiv";
-import Input from "../../ui/Input/Input";
-import Button from "../../ui/Button/Button";
+import FlexDiv from "src/ui/FlexDiv/FlexDiv";
+import Input from "src/ui/Input/Input";
+import Button from "src/ui/Button/Button";
 import {
   usePostLoginUserQuery,
   userQueryKey,
-} from "../../queries/User/usePostLoginUserQuery";
-import { setStoredToken } from "../../utils/auth";
+} from "src/queries/User/usePostLoginUserQuery";
+import { setStoredToken } from "src/utils/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");

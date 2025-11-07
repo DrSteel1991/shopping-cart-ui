@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { useAuthToken } from "../utils/auth";
+import { useAuthToken } from "src/utils/auth";
 
 interface PublicRouteProps {
   children: React.ReactNode;
