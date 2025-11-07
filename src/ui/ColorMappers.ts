@@ -6,7 +6,9 @@ const camelToKebab = (str: string): string => {
 };
 
 // Helper function to create color class maps
-const createColorMap = (prefix: "text" | "bg" | "border"): Record<Colors, string> => {
+const createColorMap = (
+  prefix: "text" | "bg" | "border" | "hover:bg" | "hover:border"
+): Record<Colors, string> => {
   const colorVariants: Colors[] = [
     "white",
     "qonto",
@@ -168,4 +170,3 @@ export const bgColorMap = createColorMap("bg");
 export const borderColorMap = createColorMap("border");
 export const hoverBgColorMap = createColorMap("hover:bg");
 export const hoverBorderColorMap = createColorMap("hover:border");
-

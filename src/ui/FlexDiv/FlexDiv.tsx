@@ -13,6 +13,7 @@ import type {
   InteractionType,
   WidthType,
   HeightType,
+  PositionType,
 } from "../types";
 import {
   getPropsByProperty,
@@ -29,12 +30,14 @@ import {
 interface StyledFlexDivProps {
   $widthProps: WidthType;
   $heightProps: HeightType;
+  $positionProps: PositionType;
 }
 
 const StyledFlexDiv = styled("div")<StyledFlexDivProps>(
-  ({ $widthProps, $heightProps }) => ({
+  ({ $widthProps, $heightProps, $positionProps }) => ({
     ...$widthProps,
     ...$heightProps,
+    ...$positionProps,
   })
 );
 
@@ -44,6 +47,7 @@ export interface FlexDivProps
     MarginType,
     PaddingType,
     BackgroundType,
+    PositionType,
     BorderType,
     OverflowType,
     VisibilityType,
@@ -63,6 +67,7 @@ const FlexDiv = forwardRef<HTMLDivElement, FlexDivProps>((props, ref) => {
     paddingProps,
     widthProps,
     heightProps,
+    positionProps,
     ...restProps
   } = getPropsByProperty(props);
 
@@ -82,6 +87,7 @@ const FlexDiv = forwardRef<HTMLDivElement, FlexDivProps>((props, ref) => {
       )}
       $widthProps={widthProps}
       $heightProps={heightProps}
+      $positionProps={positionProps}
       {...restProps}
     />
   );

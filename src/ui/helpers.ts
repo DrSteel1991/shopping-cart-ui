@@ -8,6 +8,7 @@ import type {
   MarginType,
   OverflowType,
   PaddingType,
+  PositionType,
   VisibilityType,
   WidthType,
 } from "./types";
@@ -414,6 +415,7 @@ export const getPropsByProperty = <
   T extends FlexType &
     WidthType &
     HeightType &
+    PositionType &
     BorderType &
     OverflowType &
     BackgroundType &
@@ -433,6 +435,11 @@ export const getPropsByProperty = <
     height,
     minHeight,
     maxHeight,
+    position,
+    top,
+    left,
+    right,
+    bottom,
     borderWidth,
     borderStyle,
     borderColor,
@@ -515,6 +522,7 @@ export const getPropsByProperty = <
     paddingProps: { p, pt, pb, pl, pr, px, py },
     widthProps: { width, minWidth, maxWidth },
     heightProps: { height, minHeight, maxHeight },
+    positionProps: { position, top, left, right, bottom },
     borderProps: {
       borderWidth,
       borderStyle,
