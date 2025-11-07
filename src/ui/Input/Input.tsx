@@ -36,7 +36,6 @@ const StyledInput = styled("input")<StyledInputProps>(
     ...$heightProps,
     ...$positionProps,
     // Reset default input styles
-    border: "none",
     outline: "none",
     fontFamily: "inherit",
     fontSize: "inherit",
@@ -45,15 +44,21 @@ const StyledInput = styled("input")<StyledInputProps>(
     borderRadius: "0.375rem",
     backgroundColor: "white",
     color: "#212529",
+    border: "1px solid #dee2e6",
+    boxShadow: "0 1px 2px rgba(0, 0, 0, 0.05)",
     transition: "all 0.2s ease-in-out",
     // Focus state
     "&:focus": {
-      outline: "2px solid #007bff",
-      outlineOffset: "2px",
+      outline: "none",
+      borderColor: "#007bff",
+      boxShadow:
+        "0 0 0 3px rgba(0, 123, 255, 0.25), 0 1px 2px rgba(0, 0, 0, 0.05)",
     },
     "&:focus-visible": {
-      outline: "2px solid #007bff",
-      outlineOffset: "2px",
+      outline: "none",
+      borderColor: "#007bff",
+      boxShadow:
+        "0 0 0 3px rgba(0, 123, 255, 0.25), 0 1px 2px rgba(0, 0, 0, 0.05)",
     },
     // Disabled state
     "&:disabled": {
@@ -122,4 +127,3 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 Input.displayName = "Input";
 
 export default Input;
-
