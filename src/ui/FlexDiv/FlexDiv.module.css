@@ -101,3 +101,149 @@
   align-items: stretch;
 }
 
+/* Flex direction utilities */
+.directionRow {
+  flex-direction: row;
+}
+
+.directionRowReverse {
+  flex-direction: row-reverse;
+}
+
+.directionColumn {
+  flex-direction: column;
+}
+
+.directionColumnReverse {
+  flex-direction: column-reverse;
+}
+
+/* Flex wrap utilities */
+.wrap {
+  flex-wrap: wrap;
+}
+
+.nowrap {
+  flex-wrap: nowrap;
+}
+
+/* Flex utilities */
+.flex1 {
+  flex: 1;
+}
+
+.flexAuto {
+  flex: auto;
+}
+
+.flexInitial {
+  flex: initial;
+}
+
+.flexNone {
+  flex: none;
+}
+
+/* Flex grow utilities */
+.grow0 {
+  flex-grow: 0;
+}
+
+.grow1 {
+  flex-grow: 1;
+}
+
+/* Flex shrink utilities */
+.shrink0 {
+  flex-shrink: 0;
+}
+
+.shrink1 {
+  flex-shrink: 1;
+}
+
+/* Flex basis utilities */
+.basis0 {
+  flex-basis: 0%;
+}
+
+.basis1 {
+  flex-basis: 8.333333%;
+}
+
+.basis2 {
+  flex-basis: 16.666667%;
+}
+
+.basis3 {
+  flex-basis: 25%;
+}
+
+.basis4 {
+  flex-basis: 33.333333%;
+}
+
+.basis5 {
+  flex-basis: 41.666667%;
+}
+
+.basis6 {
+  flex-basis: 50%;
+}
+
+.basis7 {
+  flex-basis: 58.333333%;
+}
+
+.basis8 {
+  flex-basis: 66.666667%;
+}
+
+.basis9 {
+  flex-basis: 75%;
+}
+
+.basis10 {
+  flex-basis: 83.333333%;
+}
+
+.basis11 {
+  flex-basis: 91.666667%;
+}
+
+.basis12 {
+  flex-basis: 100%;
+}
+
+/* Align self utilities */
+.selfStart {
+  align-self: flex-start;
+}
+
+.selfEnd {
+  align-self: flex-end;
+}
+
+.selfCenter {
+  align-self: center;
+}
+
+.selfBetween {
+  align-self: space-between;
+}
+
+.selfAround {
+  align-self: space-around;
+}
+
+.selfEvenly {
+  align-self: space-evenly;
+}
+
+.selfBaseline {
+  align-self: baseline;
+}
+
+.selfStretch {
+  align-self: stretch;
+}

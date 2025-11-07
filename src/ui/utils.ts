@@ -1,4 +1,4 @@
-import type { Breakpoint, WithBreakpoints } from "../ui";
+import type { Breakpoint, WithBreakpoints } from "./ui";
 
 /**
  * Extracts the base value from a WithBreakpoints type.

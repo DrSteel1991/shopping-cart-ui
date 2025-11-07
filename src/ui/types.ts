@@ -29,3 +29,37 @@ export interface FlexType {
   /** defines the gap between flex items */
   gap?: WithBreakpoints<string | number>;
 }
+
+export interface MarginType {
+  /** margin on all sides (1 = 8px, 2 = 16px, etc.) */
+  m?: WithBreakpoints<number>;
+  /** margin-top (1 = 8px, 2 = 16px, etc.) */
+  mt?: WithBreakpoints<number>;
+  /** margin-bottom (1 = 8px, 2 = 16px, etc.) */
+  mb?: WithBreakpoints<number>;
+  /** margin-left (1 = 8px, 2 = 16px, etc.) */
+  ml?: WithBreakpoints<number>;
+  /** margin-right (1 = 8px, 2 = 16px, etc.) */
+  mr?: WithBreakpoints<number>;
+  /** margin on horizontal sides (left and right) (1 = 8px, 2 = 16px, etc.) */
+  mx?: WithBreakpoints<number>;
+  /** margin on vertical sides (top and bottom) (1 = 8px, 2 = 16px, etc.) */
+  my?: WithBreakpoints<number>;
+}
+
+export interface PaddingType {
+  /** padding on all sides (1 = 8px, 2 = 16px, etc.) */
+  p?: WithBreakpoints<number>;
+  /** padding-top (1 = 8px, 2 = 16px, etc.) */
+  pt?: WithBreakpoints<number>;
+  /** padding-bottom (1 = 8px, 2 = 16px, etc.) */
+  pb?: WithBreakpoints<number>;
+  /** padding-left (1 = 8px, 2 = 16px, etc.) */
+  pl?: WithBreakpoints<number>;
+  /** padding-right (1 = 8px, 2 = 16px, etc.) */
+  pr?: WithBreakpoints<number>;
+  /** padding on horizontal sides (left and right) (1 = 8px, 2 = 16px, etc.) */
+  px?: WithBreakpoints<number>;
+  /** padding on vertical sides (top and bottom) (1 = 8px, 2 = 16px, etc.) */
+  py?: WithBreakpoints<number>;
+}
