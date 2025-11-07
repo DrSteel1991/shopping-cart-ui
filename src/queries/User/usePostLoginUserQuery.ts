@@ -22,7 +22,6 @@ interface UsePostLoginUserQueryOptions {
   onError?: (error: Error) => void;
 }
 
-// Query key for user data - use this to cache/retrieve user data
 export const userQueryKey = (userId?: string) =>
   userId ? ["user", userId] : ["user"];
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
 import FlexDiv from "../../ui/FlexDiv/FlexDiv";
 import Input from "../../ui/Input/Input";
@@ -7,11 +8,12 @@ import {
   usePostLoginUserQuery,
   userQueryKey,
 } from "../../queries/User/usePostLoginUserQuery";
+import { setStoredToken } from "../../utils/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const { mutationAsync: postLoginUser } = usePostLoginUserQuery();
 
@@ -23,6 +25,8 @@ const Login = () => {
         onSuccess: (data) => {
           queryClient.setQueryData(userQueryKey(data.user.id), data.user);
           queryClient.setQueryData(["auth", "token"], data.token);
+          setStoredToken(data.token);
+          navigate("/dashboard");
         },
         onError: (error) => {
           console.error("Login failed:", error);
