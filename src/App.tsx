@@ -1,6 +1,7 @@
 import FlexDiv from "./ui/FlexDiv/FlexDiv";
 import BlockDiv from "./ui/BlockDiv/BlockDiv";
 import Button from "./ui/Button/Button";
+import Input from "./ui/Input/Input";
 
 function App() {
   return (
@@ -53,6 +54,26 @@ function App() {
         >
           Custom Button
         </Button>
+      </FlexDiv>
+
+      <FlexDiv direction="column" gap={2} mt={4} width="300px">
+        <Input
+          placeholder="Enter text here"
+          borderWidth={1}
+          borderStyle="solid"
+          borderColor="primary"
+          borderRadius="md"
+          p={2}
+        />
+        <Input
+          placeholder="Disabled input"
+          disabled
+          borderWidth={1}
+          borderStyle="solid"
+          borderColor="secondary"
+          borderRadius="md"
+          p={2}
+        />
       </FlexDiv>
     </FlexDiv>
   );
