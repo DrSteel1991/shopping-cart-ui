@@ -1,14 +1,15 @@
-import { useAuthToken } from "src/utils/auth";
 import { Navigate } from "react-router-dom";
+import { useAuth } from "src/contexts/useAuth";
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
 }
 
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
-  const token = useAuthToken();
+  const { isAuthenticated } = useAuth();
 
-  if (!token) {
+  if (!isAuthenticated) {
+    // Redirect to login if not authenticated
     return <Navigate to="/login" replace />;
   }
 

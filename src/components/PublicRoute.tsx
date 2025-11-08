@@ -1,14 +1,15 @@
 import { Navigate } from "react-router-dom";
-import { useAuthToken } from "src/utils/auth";
+import { useAuth } from "src/contexts/useAuth";
 
 interface PublicRouteProps {
   children: React.ReactNode;
 }
 
 const PublicRoute = ({ children }: PublicRouteProps) => {
-  const token = useAuthToken();
+  const { isAuthenticated } = useAuth();
 
-  if (token) {
+  if (isAuthenticated) {
+    // Redirect to dashboard if already authenticated
     return <Navigate to="/dashboard" replace />;
   }
 

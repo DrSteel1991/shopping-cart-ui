@@ -1,20 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useQueryClient } from "@tanstack/react-query";
 import FlexDiv from "src/ui/FlexDiv/FlexDiv";
 import Input from "src/ui/Input/Input";
 import Button from "src/ui/Button/Button";
-import {
-  usePostLoginUserQuery,
-  userQueryKey,
-} from "src/queries/User/usePostLoginUserQuery";
-import { setStoredToken } from "src/utils/auth";
+import { usePostLoginUserQuery } from "src/queries/User/usePostLoginUserQuery";
+import { useAuth } from "src/contexts/useAuth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const queryClient = useQueryClient();
+  const { login } = useAuth();
   const { mutationAsync: postLoginUser } = usePostLoginUserQuery();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -23,9 +19,7 @@ const Login = () => {
       { email, password },
       {
         onSuccess: (data) => {
-          queryClient.setQueryData(userQueryKey(data.user.id), data.user);
-          queryClient.setQueryData(["auth", "token"], data.token);
-          setStoredToken(data.token);
+          login(data);
           navigate("/dashboard");
         },
         onError: (error) => {

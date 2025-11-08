@@ -1,21 +1,15 @@
 import { useNavigate } from "react-router-dom";
-import { useQueryClient } from "@tanstack/react-query";
 import FlexDiv from "src/ui/FlexDiv/FlexDiv";
 import Button from "src/ui/Button/Button";
-import { setStoredToken } from "src/utils/auth";
+import { useAuth } from "src/contexts/useAuth";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const queryClient = useQueryClient();
+  const { user, logout } = useAuth();
 
   const handleLogout = () => {
-    setStoredToken(null);
-    queryClient.removeQueries({ queryKey: ["auth", "token"] });
-    queryClient.removeQueries({ queryKey: ["user"] });
-    queryClient.setQueryData(["auth", "token"], null);
-    setTimeout(() => {
-      navigate("/login");
-    }, 0);
+    logout();
+    navigate("/login");
   };
 
   return (
@@ -24,7 +18,15 @@ const Dashboard = () => {
         <h1>Dashboard</h1>
         <Button onClick={handleLogout}>Logout</Button>
       </FlexDiv>
-      <p>Welcome to your dashboard!</p>
+      {user && (
+        <FlexDiv direction="column" gap={2}>
+          <p>
+            Welcome, {user.firstName} {user.lastName}!
+          </p>
+          <p>Email: {user.email}</p>
+          <p>Role: {user.role}</p>
+        </FlexDiv>
+      )}
     </FlexDiv>
   );
 };
