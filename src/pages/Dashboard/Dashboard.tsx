@@ -24,7 +24,7 @@ const Dashboard = () => {
         <h1>Dashboard</h1>
         <Button onClick={handleLogout}>Logout</Button>
       </FlexDiv>
-      <FlexDiv basis={12}>
+      <FlexDiv basis={12} alignItems="start">
         <DashboardCategories
           setSelectedCategoryId={setSelectedCategoryId}
           selectedCategoryId={selectedCategoryId}

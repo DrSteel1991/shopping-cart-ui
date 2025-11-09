@@ -8,6 +8,9 @@ export interface useGetProductsQueryResponseSuccess {
     name: string;
     slug: string;
     description: string;
+    images?: string[];
+    category?: string;
+    price?: number;
   }[];
 }
 export const productQueryKey = (categoryId?: string) =>

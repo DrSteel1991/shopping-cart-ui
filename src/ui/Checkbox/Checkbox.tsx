@@ -36,10 +36,13 @@ const StyledCheckbox = styled("input")<StyledCheckboxProps>(
     ...$heightProps,
     ...$positionProps,
     cursor: "pointer",
+    width: "16px",
+    height: "16px",
     accentColor: "#007bff",
+    flexShrink: 0,
     "&:disabled": {
       cursor: "not-allowed",
-      opacity: 0.6,
+      opacity: 0.5,
     },
     "&:focus-visible": {
       outline: "2px solid #007bff",
