@@ -1,11 +1,17 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FlexDiv from "src/ui/FlexDiv/FlexDiv";
 import Button from "src/ui/Button/Button";
 import { useAuth } from "src/contexts/useAuth";
+import DashboardCategories from "./DashboardCategories/DashboardCategories";
+import DashboardProducts from "./DashboardProducts/DashboardProducts";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const { user, logout } = useAuth();
+  const { logout } = useAuth();
+  const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(
+    null
+  );
 
   const handleLogout = () => {
     logout();
@@ -13,20 +19,18 @@ const Dashboard = () => {
   };
 
   return (
-    <FlexDiv direction="column" p={4} gap={3}>
+    <FlexDiv direction="column" p={2} height="90vh">
       <FlexDiv justifyContent="between" alignItems="center">
         <h1>Dashboard</h1>
         <Button onClick={handleLogout}>Logout</Button>
       </FlexDiv>
-      {user && (
-        <FlexDiv direction="column" gap={2}>
-          <p>
-            Welcome, {user.firstName} {user.lastName}!
-          </p>
-          <p>Email: {user.email}</p>
-          <p>Role: {user.role}</p>
-        </FlexDiv>
-      )}
+      <FlexDiv basis={12}>
+        <DashboardCategories
+          setSelectedCategoryId={setSelectedCategoryId}
+          selectedCategoryId={selectedCategoryId}
+        />
+        <DashboardProducts selectedCategoryId={selectedCategoryId} />
+      </FlexDiv>
     </FlexDiv>
   );
 };

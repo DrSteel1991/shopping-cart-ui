@@ -16,17 +16,24 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   >(null);
   const [token, setToken] = useState<string | null>(() => getStoredToken());
 
-  // Initialize from localStorage on mount
   useEffect(() => {
     const storedToken = getStoredToken();
     if (storedToken) {
       setToken(storedToken);
-      // Try to get user from query cache
+      queryClient.setQueryData(["auth", "token"], storedToken);
+
       const cachedUser = queryClient.getQueryData<
         usePostLoginUserQueryResponseSuccess["user"]
       >(["user"]);
       if (cachedUser) {
         setUser(cachedUser);
+      } else {
+        const storedUser = localStorage.getItem("auth_user");
+        if (storedUser) {
+          const parsedUser = JSON.parse(storedUser);
+          setUser(parsedUser);
+          queryClient.setQueryData(["user", parsedUser.id], parsedUser);
+        }
       }
     }
   }, [queryClient]);
@@ -35,7 +42,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setUser(data.user);
     setToken(data.token);
     setStoredToken(data.token);
-    // Also store in query cache for compatibility
+    localStorage.setItem("auth_user", JSON.stringify(data.user));
     queryClient.setQueryData(["auth", "token"], data.token);
     queryClient.setQueryData(["user", data.user.id], data.user);
   };
@@ -44,7 +51,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setUser(null);
     setToken(null);
     setStoredToken(null);
-    // Clear query cache
+    localStorage.removeItem("auth_user");
     queryClient.removeQueries({ queryKey: ["auth", "token"] });
     queryClient.removeQueries({ queryKey: ["user"] });
     queryClient.setQueryData(["auth", "token"], null);
@@ -53,7 +60,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const value: AuthContextType = {
     user,
     token,
-    isAuthenticated: !!token && !!user,
+    isAuthenticated: !!token,
     login,
     logout,
   };
